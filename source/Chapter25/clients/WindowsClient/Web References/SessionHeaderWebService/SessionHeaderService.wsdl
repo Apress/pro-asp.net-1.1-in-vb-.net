@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://tempuri.org/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://tempuri.org/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://www.w3.org/2001/XMLSchema" />
+      <s:element name="CreateSession">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreateSessionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SessionHeader" type="s0:SessionHeader" />
+      <s:complexType name="SessionHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetSessionData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetSessionDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSessionDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="CreateSessionSoapIn">
+    <part name="parameters" element="s0:CreateSession" />
+  </message>
+  <message name="CreateSessionSoapOut">
+    <part name="parameters" element="s0:CreateSessionResponse" />
+  </message>
+  <message name="CreateSessionSessionHeader">
+    <part name="SessionHeader" element="s0:SessionHeader" />
+  </message>
+  <message name="SetSessionDataSoapIn">
+    <part name="parameters" element="s0:SetSessionData" />
+  </message>
+  <message name="SetSessionDataSoapOut">
+    <part name="parameters" element="s0:SetSessionDataResponse" />
+  </message>
+  <message name="SetSessionDataSessionHeader">
+    <part name="SessionHeader" element="s0:SessionHeader" />
+  </message>
+  <message name="GetSessionDataSoapIn">
+    <part name="parameters" element="s0:GetSessionData" />
+  </message>
+  <message name="GetSessionDataSoapOut">
+    <part name="parameters" element="s0:GetSessionDataResponse" />
+  </message>
+  <message name="GetSessionDataSessionHeader">
+    <part name="SessionHeader" element="s0:SessionHeader" />
+  </message>
+  <portType name="SessionHeaderServiceSoap">
+    <operation name="CreateSession">
+      <input message="s0:CreateSessionSoapIn" />
+      <output message="s0:CreateSessionSoapOut" />
+    </operation>
+    <operation name="SetSessionData">
+      <input message="s0:SetSessionDataSoapIn" />
+      <output message="s0:SetSessionDataSoapOut" />
+    </operation>
+    <operation name="GetSessionData">
+      <input message="s0:GetSessionDataSoapIn" />
+      <output message="s0:GetSessionDataSoapOut" />
+    </operation>
+  </portType>
+  <binding name="SessionHeaderServiceSoap" type="s0:SessionHeaderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="CreateSession">
+      <soap:operation soapAction="http://tempuri.org/CreateSession" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+        <soap:header message="s0:CreateSessionSessionHeader" part="SessionHeader" use="literal" />
+      </output>
+    </operation>
+    <operation name="SetSessionData">
+      <soap:operation soapAction="http://tempuri.org/SetSessionData" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:SetSessionDataSessionHeader" part="SessionHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetSessionData">
+      <soap:operation soapAction="http://tempuri.org/GetSessionData" style="document" />
+      <input>
+        <soap:body use="literal" />
+        <soap:header message="s0:GetSessionDataSessionHeader" part="SessionHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SessionHeaderService">
+    <port name="SessionHeaderServiceSoap" binding="s0:SessionHeaderServiceSoap">
+      <soap:address location="http://localhost/Chapter25/SessionHeaderService.asmx" />
+    </port>
+  </service>
+</definitions>

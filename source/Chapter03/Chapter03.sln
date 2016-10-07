@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Chapter03", "http://localhost/Chapter03/Chapter03.vbproj", "{4352E7D3-82D8-44E6-88FC-667EAE112F62}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4352E7D3-82D8-44E6-88FC-667EAE112F62}.Debug.ActiveCfg = Debug|.NET
+		{4352E7D3-82D8-44E6-88FC-667EAE112F62}.Debug.Build.0 = Debug|.NET
+		{4352E7D3-82D8-44E6-88FC-667EAE112F62}.Release.ActiveCfg = Release|.NET
+		{4352E7D3-82D8-44E6-88FC-667EAE112F62}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

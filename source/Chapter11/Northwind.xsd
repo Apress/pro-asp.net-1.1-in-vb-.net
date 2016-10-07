@@ -1,0 +1,71 @@
+<?xml version="1.0" standalone="yes" ?>
+<xs:schema id="NorthwindDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="NorthwindDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Categories">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CategoryID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="CategoryName">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="15" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Description" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="1073741823" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Picture" type="xs:base64Binary" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Products">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ProductID" msdata:ReadOnly="true" msdata:AutoIncrement="true" type="xs:int" />
+							<xs:element name="ProductName">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="40" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="SupplierID" type="xs:int" minOccurs="0" />
+							<xs:element name="CategoryID" type="xs:int" minOccurs="0" />
+							<xs:element name="QuantityPerUnit" minOccurs="0">
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:maxLength value="20" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="UnitPrice" type="xs:decimal" minOccurs="0" />
+							<xs:element name="UnitsInStock" type="xs:short" minOccurs="0" />
+							<xs:element name="UnitsOnOrder" type="xs:short" minOccurs="0" />
+							<xs:element name="ReorderLevel" type="xs:short" minOccurs="0" />
+							<xs:element name="Discontinued" type="xs:boolean" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:unique name="Constraint1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//Categories" />
+			<xs:field xpath="CategoryID" />
+		</xs:unique>
+		<xs:unique name="Products_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//Products" />
+			<xs:field xpath="ProductID" />
+		</xs:unique>
+		<xs:keyref name="CategoriesProducts" refer="Constraint1">
+			<xs:selector xpath=".//Products" />
+			<xs:field xpath="CategoryID" />
+		</xs:keyref>
+	</xs:element>
+</xs:schema>

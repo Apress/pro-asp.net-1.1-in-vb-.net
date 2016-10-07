@@ -1,0 +1,16 @@
+<%@ Page Language = "vb" Codebehind="XmlTest.aspx.vb" AutoEventWireup="false" Inherits="Chapter05.XmlTest" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<HTML>
+	<HEAD>
+		<title>XmlTest</title>
+		<meta name="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
+		<meta name="CODE_LANGUAGE" Content="C#">
+		<meta name="vs_defaultClientScript" content="JavaScript">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+	</HEAD>
+	<body MS_POSITIONING="GridLayout">
+		<form id="Form1" method="post" runat="server">
+			<asp:Xml id="Xml1" runat="server" DocumentSource="Products.xml" TransformSource="Products.xslt"></asp:Xml>
+		</form>
+	</body>
+</HTML>
